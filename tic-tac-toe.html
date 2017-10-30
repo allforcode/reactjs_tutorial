@@ -13,39 +13,6 @@
 <body>
   <div id="errors"/>
   <div id="root"></div>
-  <script>
-    window.addEventListener('mousedown', function(e) {
-      document.body.classList.add('mouse-navigation');
-      document.body.classList.remove('kbd-navigation');
-    });
-
-    window.addEventListener('keydown', function(e) {
-      if (e.keyCode === 9) {
-        document.body.classList.add('kbd-navigation');
-        document.body.classList.remove('mouse-navigation');
-      }
-    });
-
-    window.addEventListener('click', function(e) {
-      if (e.target.tagName === 'A' && e.target.getAttribute('href') === '#') {
-        e.preventDefault();
-      }
-    });
-
-    window.onerror = function(message, source, line, col, error) {
-      var text = error ? error.stack || error : message + ' (at ' + source + ':' + line + ':' + col + ')';
-      errors.textContent += text + '\n';
-      errors.style.display = '';
-    };
-
-    console.error = (function(old) {
-      return function error() {
-        errors.textContent += Array.prototype.slice.call(arguments).join(' ') + '\n';
-        errors.style.display = '';
-        old.apply(this, arguments);
-      }
-    })(console.error);
-  </script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>

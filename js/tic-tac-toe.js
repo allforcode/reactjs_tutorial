@@ -11,7 +11,7 @@ class Board extends React.Component {
     let isWinner = false;
     if(this.props.winner){
       isWinner = this.props.winner.indexOf(i) !== -1;
-      console.log(isWinner);
+      // console.log(isWinner);
     }
 
     return (
@@ -78,8 +78,6 @@ class Game extends React.Component {
     squares[i] = this.state.xIsNext ? '🍎' : '🍏';
 
     const disableButton = (history.length < 1);
-    console.log(history);
-    console.log(disableButton);
 
     this.setState({
       history: history.concat([{
